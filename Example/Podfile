@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'IOViewModel_Example' do
+  pod 'IOViewModel', :path => '../'
+
+  target 'IOViewModel_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
