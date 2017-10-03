@@ -32,13 +32,13 @@ open class _IOViewModelInOut<T: IOViewModel>: _IOViewModelInOutProtocol {
 }
 
 open class IOViewModelIn<T: IOViewModel>: _IOViewModelInOut<T> {
-    var out: T.Out {
+    public var out: T.Out {
         return vm.out
     }
 }
 
 open class IOViewModelOut<T: IOViewModel>: _IOViewModelInOut<T> {
-    var `in`: T.In {
+    public var `in`: T.In {
         return vm.in
     }
 }
