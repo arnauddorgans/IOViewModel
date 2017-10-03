@@ -5,8 +5,6 @@
 //  Created by Arnaud Dorgans on 03/10/2017.
 //
 
-import UIKit
-
 public protocol IOViewModel {
     associatedtype In: _IOViewModelInOutProtocol
     associatedtype Out: _IOViewModelInOutProtocol
