@@ -1,0 +1,16 @@
+PODS:
+  - IOViewModel (0.1.0)
+
+DEPENDENCIES:
+  - IOViewModel (from `../`)
+
+EXTERNAL SOURCES:
+  IOViewModel:
+    :path: ../
+
+SPEC CHECKSUMS:
+  IOViewModel: 2c7634692da8d5942823b7f1dc5c45eb8274284f
+
+PODFILE CHECKSUM: b156316d265d41b93091e14d607f220d17508da6
+
+COCOAPODS: 1.3.1

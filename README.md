@@ -20,9 +20,18 @@ it, simply add the following line to your Podfile:
 pod 'IOViewModel'
 ```
 
+## XCTemplates
+
+IOViewModel is published with xctemplate.
+
+To install it, just go in xctemplates directory and run this command in a terminal:
+```shell
+sh install.sh
+```
+
 ## Author
 
-Arnoymous, ineox@me.com
+Arnoymous, arnaud.dorgans@gmail.com
 
 ## License
 
