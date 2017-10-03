@@ -19,5 +19,22 @@
 		<string>com.apple.platform.watchos</string>
 		<string>com.apple.platform.tvos</string>
 	</array>
+	<key>Options</key>
+	<array>
+		<dict>
+			<key>Identifier</key>
+			<string>productName</string>
+			<key>Required</key>
+			<true/>
+			<key>Name</key>
+			<string>Class Name</string>
+			<key>Description</key>
+			<string>The name of the ViewModel to create</string>
+			<key>Type</key>
+			<string>text</string>
+			<key>NotPersisted</key>
+			<true/>
+		</dict>
+	</array>
 </dict>
 </plist>
