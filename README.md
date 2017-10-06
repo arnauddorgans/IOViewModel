@@ -20,7 +20,57 @@ it, simply add the following line to your Podfile:
 pod 'IOViewModel'
 ```
 
-## XCTemplates
+## Usage
+
+Install XCTemplate and generate instantly beautiful viewmodels 
+#### ViewModel
+```swift
+import IOViewModel
+import RxSwift
+import RxSwiftExt
+
+class UserViewModel: IOViewModel {
+
+    typealias In = Input
+    typealias Out = Output
+
+    private (set) lazy var `in`: In = In(vm: self)
+    private (set) lazy var out: Out = Out(vm: self)
+
+    class Input: IOViewModelIn<UserViewModel> {
+
+        lazy var user = BehaviorSubject<User?>(value: nil)
+    }
+
+    class Output: IOViewModelOut<UserViewModel> {
+
+        var user: Observable<User> {
+            return self.in.user.unwrap()
+        }
+
+        var name: Observable<String> {
+            return user.map { $0.firstName + " " + $0.lastName }
+        }
+    }
+}
+```
+
+#### ViewController
+```swift
+
+let vm = UserViewModel()
+
+userView.rx.user
+    .bind(to: vm.in.user)
+    .disposed(by: disposeBag)
+
+vm.out.name
+    .bind(to: nameLabel.rx.text)
+    .disposed(by: disposeBag)
+
+```
+
+## XCTemplate
 
 IOViewModel is published with xctemplate.
 
