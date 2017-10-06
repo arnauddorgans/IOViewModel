@@ -5,7 +5,7 @@
 //  Created by Arnaud Dorgans on 03/10/2017.
 //
 
-public protocol IOViewModel {
+public protocol IOViewModel: class {
     associatedtype In: _IOViewModelInOutProtocol
     associatedtype Out: _IOViewModelInOutProtocol
     
@@ -24,10 +24,13 @@ public protocol _IOViewModelInOutProtocol {
 open class _IOViewModelInOut<T: IOViewModel>: _IOViewModelInOutProtocol {
     public typealias VM = T
     
-    public let vm: VM
+    private weak var _vm: VM!
+    public var vm: VM {
+        return _vm
+    }
     
     public required init(vm: VM) {
-        self.vm = vm
+        self._vm = vm
     }
 }
 
@@ -42,3 +45,4 @@ open class IOViewModelOut<T: IOViewModel>: _IOViewModelInOut<T> {
         return vm.in
     }
 }
+
