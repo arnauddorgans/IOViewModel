@@ -31,11 +31,8 @@ import RxSwiftExt
 
 class UserViewModel: IOViewModel {
 
-    typealias In = Input
-    typealias Out = Output
-
-    private (set) lazy var `in`: In = In(vm: self)
-    private (set) lazy var out: Out = Out(vm: self)
+    private (set) lazy var `in` = In(vm: self)
+    private (set) lazy var out = Out(vm: self)
 
     class Input: IOViewModelIn<UserViewModel> {
 
