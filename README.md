@@ -36,18 +36,22 @@ class UserViewModel: IOViewModel {
 
     class Input: IOViewModelIn<UserViewModel> {
 
-        lazy var user = BehaviorSubject<User?>(value: nil)
+        let user = BehaviorSubject<User?>(value: nil)
     }
 
     class Output: IOViewModelOut<UserViewModel> {
 
-        var user: Observable<User> {
-            return self.in.user.unwrap()
-        }
+        lazy var user: Observable<User> = {
+            return self.in.user.unwrap().share(replay: 1)
+        }()
 
-        var name: Observable<String> {
-            return user.map { $0.firstName + " " + $0.lastName }
-        }
+        lazy var name: Observable<String> = {
+            return user.map { $0.firstName + " " + $0.lastName }.share(replay: 1)
+        }()
+    }
+    
+    func update(user: User) {
+        self.in.user.onNext(user)
     }
 }
 ```
